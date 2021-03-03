@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Biglietti treno</title>
+  </head>
+  <style media="screen">
+
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      background-color: rgb(200,200,200);
+      padding: 30px;
+    }
+
+    h3{
+      padding: 10px;
+      color: red;
+    }
+
+  </style>
+
+  <body>
+
+    <h3 id="title">
+
+    </h3>
+
+    <script type="text/javascript">
+
+      var userAgeStr = prompt("Qual'è la tua età?");
+      var userAge = parseInt(userAgeStr);
+      var KmStr = prompt("Quanti KM devi perecorrere?");
+      var Km = parseInt(KmStr);
+      var ticketPricePerKm = 10;
+      var ticketPrice = ticketPricePerKm*Km;
+      var juniorTicketPrice = ticketPrice * 0.8;
+      var seniorTicketPrice = ticketPrice * 0.6;
+      var junior = userAge <= 18 && userAge >= 0;
+      var senior = userAge >= 65;
+
+      console.log(userAgeStr,userAge,KmStr,Km,ticketPricePerKm,ticketPrice,juniorTicketPrice,seniorTicketPrice,junior,senior);
+
+      if (junior){
+
+        console.log('Il prezzo è di ' + juniorTicketPrice + 'Euro.');
+        document.getElementById("title").innerHTML = 'Il prezzo è di ' + seniorTicketPrice + 'Euro.Sconto Junior applicato.';
+
+      } else if (senior) {
+
+        console.log('Il prezzo è di ' + seniorTicketPrice + 'Euro.');
+        document.getElementById("title").innerHTML = 'Il prezzo è di ' + seniorTicketPrice + 'Euro.Sconto Senior applicato.';
+
+      } else {
+
+        console.log('Il prezzo è di ' + ticketPrice + 'Euro.');
+        document.getElementById("title").innerHTML = 'Il prezzo è di ' + ticketPrice + 'Euro.Nessuno sconto applicato';
+
+      }
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
