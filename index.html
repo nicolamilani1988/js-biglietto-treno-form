@@ -17,7 +17,7 @@
       padding: 30px;
     }
 
-    h3{
+    h3,h5{
       padding: 10px;
       color: red;
     }
@@ -26,16 +26,14 @@
 
   <body>
 
-    <h3 id="title">
+    <h3 id="title"></h3>
 
-    </h3>
+    <h5 id="subtitle"></h5>
 
     <script type="text/javascript">
 
-      var userAgeStr = prompt("Qual'è la tua età?");
-      var userAge = parseInt(userAgeStr);
-      var KmStr = prompt("Quanti KM devi perecorrere?");
-      var Km = parseInt(KmStr);
+      var userAge = parseInt(prompt("Qual'è la tua età?"));
+      var Km = parseInt(prompt("Quanti KM devi perecorrere?"));
       var ticketPricePerKm = 0.21;
       var ticketPrice = parseFloat((ticketPricePerKm*Km).toFixed(2));
       var juniorTicketPrice = parseFloat((ticketPrice * 0.8).toFixed(2));
@@ -43,7 +41,7 @@
       var junior = userAge <= 18 && userAge >= 0;
       var senior = userAge >= 65;
 
-      console.log(userAgeStr,userAge,KmStr,Km,ticketPricePerKm,ticketPrice,juniorTicketPrice,seniorTicketPrice,junior,senior);
+      console.log(userAge,Km,ticketPricePerKm,ticketPrice,juniorTicketPrice,seniorTicketPrice,junior,senior);
 
       if (junior){
 
@@ -63,7 +61,19 @@
       }
 
 
+      var d= new Date;
+      var year = d.getFullYear();
+      var month = d.getMonth();
+      var date = d.getDate();
+      var hour = d.getHours ();
+      var minute = d.getMinutes();
+      var second = d.getSeconds ();
 
+      document.getElementById("subtitle").innerHTML = "Hai acquistato alle ore " + hour + " e " + minute + " minuti."
+
+
+      console.log(d);
+      console.log(year, month, date, hour, minute, second);
 
 
     </script>
