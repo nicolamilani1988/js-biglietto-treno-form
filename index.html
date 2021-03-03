@@ -37,9 +37,9 @@
       var KmStr = prompt("Quanti KM devi perecorrere?");
       var Km = parseInt(KmStr);
       var ticketPricePerKm = 0.21;
-      var ticketPrice = ticketPricePerKm*Km;
-      var juniorTicketPrice = ticketPrice * 0.8;
-      var seniorTicketPrice = ticketPrice * 0.6;
+      var ticketPrice = parseFloat((ticketPricePerKm*Km).toFixed(2));
+      var juniorTicketPrice = parseFloat((ticketPrice * 0.8).toFixed(2));
+      var seniorTicketPrice = parseFloat((ticketPrice * 0.6).toFixed(2));
       var junior = userAge <= 18 && userAge >= 0;
       var senior = userAge >= 65;
 
