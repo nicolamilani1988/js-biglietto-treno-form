@@ -34,42 +34,39 @@
 
       var userAge = parseInt(prompt("Qual'è la tua età?"));
       var Km = parseInt(prompt("Quanti KM devi perecorrere?"));
-      var ticketPricePerKm = 0.21;
-      var ticketPrice = parseFloat((ticketPricePerKm*Km).toFixed(2));
-      var juniorTicketPrice = parseFloat((ticketPrice * 0.8).toFixed(2));
-      var seniorTicketPrice = parseFloat((ticketPrice * 0.6).toFixed(2));
-      var junior = userAge <= 18 && userAge >= 0;
-      var senior = userAge >= 65;
+      var ticketPrice = parseFloat((0.21*Km).toFixed(2));
+      // var juniorTicketPrice = parseFloat((ticketPrice * 0.8).toFixed(2));
+      // var seniorTicketPrice = parseFloat((ticketPrice * 0.6).toFixed(2));
+      // var junior = userAge <= 18 && userAge >= 0;
+      // var senior = userAge >= 65;
+      var result = document.getElementById("title");
+      var scontoDescr = "Nessuno sconto applicato";
 
-      console.log(userAge,Km,ticketPricePerKm,ticketPrice,juniorTicketPrice,seniorTicketPrice,junior,senior);
 
-      if (junior){
-
-        console.log('Il prezzo è di ' + juniorTicketPrice + 'Euro.');
-        document.getElementById("title").innerHTML = 'Il prezzo è di ' + juniorTicketPrice + 'Euro.Sconto Junior applicato.';
-
-      } else if (senior) {
-
-        console.log('Il prezzo è di ' + seniorTicketPrice + 'Euro.');
-        document.getElementById("title").innerHTML = 'Il prezzo è di ' + seniorTicketPrice + 'Euro.Sconto Senior applicato.';
-
-      } else {
-
-        console.log('Il prezzo è di ' + ticketPrice + 'Euro.');
-        document.getElementById("title").innerHTML = 'Il prezzo è di ' + ticketPrice + 'Euro.Nessuno sconto applicato';
-
+      if (userAge <= 18 && userAge >= 0){
+        ticketPrice = parseFloat((ticketPrice * 0.8).toFixed(2));
+        scontoDescr="Sconto Junior applicato.";
+      } else if (userAge >= 65) {
+        ticketPrice = parseFloat((ticketPrice * 0.6).toFixed(2));
+        scontoDescr="Sconto Senior applicato.";
       }
+
+      var message = result.innerHTML = 'Il prezzo è di ' + ticketPrice + 'Euro.' + scontoDescr;
+
+      console.log(userAge,Km,ticketPrice,scontoDescr);
+
+
 
 
       var d= new Date;
       var year = d.getFullYear();
-      var month = d.getMonth();
+      var month = d.getMonth(); // perchè mi restituisce 2 come mese ?
       var date = d.getDate();
       var hour = d.getHours ();
       var minute = d.getMinutes();
       var second = d.getSeconds ();
 
-      document.getElementById("subtitle").innerHTML = "Hai acquistato alle ore " + hour + " e " + minute + " minuti."
+      document.getElementById("subtitle").innerHTML = "Preventivo delle ore " + hour + " e " + minute + " minuti."
 
 
       console.log(d);
